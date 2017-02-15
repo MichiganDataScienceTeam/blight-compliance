@@ -1,6 +1,6 @@
-# blight-competition
+# blight-compliance
 
-Starter scripts for the MDST Blight Ticket Compliance Challenge
+Starter scripts for the [https://inclass.kaggle.com/c/detroit-blight-ticket-compliance](MDST Blight Ticket Compliance Challenge)
 
 ### Instructions
 
