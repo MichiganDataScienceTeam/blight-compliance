@@ -34,7 +34,7 @@ for column_name in ['inspector_name', 'violator_name', \
 
 # Convert datetime columns into years/months/days
 for column_name in ['ticket_issued_date', 'hearing_date']:
-    print 'Converting datetime to years/months/days...', column_name
+    print('Converting datetime to years/months/days...', column_name)
     
     # test
     day_time = pd.to_datetime(test[column_name])
@@ -67,7 +67,7 @@ counts = temp_concat['violation_code'].value_counts()
 temp_concat['violation_code'][temp_concat['violation_code'].isin(counts[counts < 10].index)] = np.nan
 
 for column_name in cols:
-    print 'Converting to categorical...', column_name, '# variables:', len(temp_concat[column_name].unique())
+    print('Converting to categorical...', column_name, '# variables:', len(temp_concat[column_name].unique()))
     dummies = pd.get_dummies(temp_concat[column_name])
     temp_concat[dummies.columns] = dummies
     temp_concat.drop(column_name, axis=1, inplace=True)
@@ -80,7 +80,7 @@ test[temp_concat.columns] = temp_concat.loc[test.index]
 features = list( test.columns )
 response = ['compliance']
 
-print "Number of features:", len(features)
+print("Number of features:", len(features))
 
 classifiers = {
     "SGD": SGDClassifier(),
@@ -109,7 +109,7 @@ Xtest[pd.isnull(Xtest)] = 0
 
 # Select the model
 
-for classifier_type in classifiers.keys():
+for classifier_type in list(classifiers.keys()):
     
     # Train classifier
     clf = classifiers[classifier_type]
